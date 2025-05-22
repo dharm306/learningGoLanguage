@@ -11,19 +11,15 @@ func main() {
 	var subjectNames []string
 	var marks []int
 	var totalSubject int = iopackage.GetIntValue("Enter total required subject :", "")
-	subjectNames = make([]string, totalSubject)
-	marks = make([]int, totalSubject)
-	for i := 0; i < totalSubject; i++ {
-		//subjectNames = append(subjectNames, iopackage.GetStringValue("Please name of Subject %d : ", i+1))
-		subjectNames[i] = iopackage.GetStringValue("Please name of Subject %d : ", i+1)
+	for i := range totalSubject {
+		subjectNames = append(subjectNames, iopackage.GetStringValue("Please name of Subject %d : ", i+1))
 	}
-	for j := 0; j < totalSubject; j++ {
-		//marks = append(marks, iopackage.GetIntValue("Please enter mark of %s : ", subjectNames[j]))
-		marks[j] = iopackage.GetIntValue("Please enter mark of %s : ", subjectNames[j])
+	for j := range totalSubject {
+		marks = append(marks, iopackage.GetIntValue("Please enter mark of %s : ", subjectNames[j]))
 	}
 
 	fmt.Println("--------------------------------------")
-	for k := 0; k < totalSubject; k++ {
+	for k := range totalSubject {
 		//fmt.Println("Subject ", subjectNames[k])
 		//fmt.Println("Marks ", marks[k])
 		iopackage.DisplayString("%-20s %3d\n", subjectNames[k], marks[k])
