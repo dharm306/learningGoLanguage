@@ -5,6 +5,10 @@ import (
 	"reflect"
 )
 
+type Test struct {
+	TestName string
+}
+
 func GetIntValue(inputMessage string, value any) int {
 	var val int
 	v := reflect.ValueOf(value)
